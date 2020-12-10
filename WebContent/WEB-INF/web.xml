@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>StudentMangerWeb</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/500.jsp</location>
+  </error-page>
+  
+  <servlet>
+  	<description>验证码</description>
+  	<servlet-name>CaptchaServlet</servlet-name>
+  	<servlet-class>com.ischool.programer.servlet.CaptchaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CaptchaServlet</servlet-name>
+  	<url-pattern>/CaptchaServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>登陆验证</description>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.ischool.programer.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<description>登陆状态过滤</description>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>com.ischool.programer.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>/SystemServlet</url-pattern>
+  	<url-pattern>/AdminServlet</url-pattern>
+  	<url-pattern>/StudentServlet</url-pattern>
+  	<url-pattern>/TeacherServlet</url-pattern>
+  	<url-pattern>/GradeServlet</url-pattern>
+  </filter-mapping>
+  
+    <servlet>
+  	<description>登陆后的主界面</description>
+  	<servlet-name>SystemServlet</servlet-name>
+  	<servlet-class>com.ischool.programer.servlet.SystemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SystemServlet</servlet-name>
+  	<url-pattern>/SystemServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>学生信息管理</description>
+  	<servlet-name>StudentServlet</servlet-name>
+  	<servlet-class>com.ischool.programer.servlet.StudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StudentServlet</servlet-name>
+  	<url-pattern>/StudentServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>班级信息管理</description>
+  	<servlet-name>ClassServlet</servlet-name>
+  	<servlet-class>com.ischool.programer.servlet.ClassServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClassServlet</servlet-name>
+  	<url-pattern>/ClassServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<description>头像图片管理</description>
+  	<servlet-name>PhotoServlet</servlet-name>
+  	<servlet-class>com.ischool.programer.servlet.PhotoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PhotoServlet</servlet-name>
+  	<url-pattern>/PhotoServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<description>老师信息管理</description>
+  	<servlet-name>TeacherServlet</servlet-name>
+  	<servlet-class>com.ischool.programer.servlet.TeacherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TeacherServlet</servlet-name>
+  	<url-pattern>/TeacherServlet</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
