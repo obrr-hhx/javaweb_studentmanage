@@ -7,23 +7,23 @@ import java.sql.SQLException;
 /**
  * 
  * @author hndsnhuang
- *Êı¾İ¿âÁ¬½Óutil
+ *æ•°æ®åº“è¿æ¥util
  */
 public class DbUtil {
 
 	private String dbUrl = "jdbc:mysql://localhost:3306/db_student_manager_web?useUnicode=true&characterEncoding=utf8";
-	private String dbUser = "root";
-	private String dbPassword = "15871008288a";
+	private String dbUser = ""; // your user name
+	private String dbPassword = ""; // your password
 	private String jdbcName = "com.mysql.jdbc.Driver";
 	private Connection connection = null;
 	public Connection getConnection() {
 		try {
 			Class.forName(jdbcName);
 			connection = DriverManager.getConnection(dbUrl,dbUser,dbPassword);
-			System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦");
+			System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸ");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("Êı¾İ¿âÁ¬½ÓÊ§°Ü");
+			System.out.println("æ•°æ®åº“è¿æ¥å¤±è´¥");
 			e.printStackTrace();
 		}
 		return connection;
@@ -33,7 +33,7 @@ public class DbUtil {
 		if(connection != null)
 			try {
 				connection.close();
-				System.out.println("Êı¾İ¿âÁ¬½Ó½áÊø");
+				System.out.println("æ•°æ®åº“è¿æ¥ç»“æŸ");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
